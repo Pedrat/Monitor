@@ -5,5 +5,12 @@ from termcolor import colored,cprint
 os.system("clear")
 
 capture = pyshark.LiveCapture(interface='eth0')
-capture.sniff(timeout=50)
-print(capture)
+for packet in capture.sniff_continuously():
+    try:
+        print(packet["TCP"].dstport)#.dst)
+    except:
+        pass
+    if "HTTP" in packet:
+        print (colored('Just arrived',"white"))
+    if "HTTPS" in packet:
+        print(colored("Just arrived",'red'))
