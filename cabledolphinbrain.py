@@ -22,8 +22,6 @@ class CAPTURE:
         elif port =="443":
             self.HTTPS[1]+=1
 
-
-
     def capture(self):
         while self.valida == True:
             capture = pyshark.LiveCapture(interface='eth0')
@@ -38,10 +36,15 @@ class CAPTURE:
             sleep(0.2)
             os.system("clear")
             columns=shutil.get_terminal_size().columns
-            lines=shutil.get_terminal_size().lines
-            print(("||"+str(self.HTTP[0])+"||"+str(self.HTTP[1])+"||").center(columns))
-            print(("||"+str(self.HTTPS[0])+"||"+str(self.HTTPS[1])+"||").center(columns))
-            #print(self.HTTPS.center(columns))
+            lines="\n"*((shutil.get_terminal_size().lines//2)-2)
+            print(lines)
+            maior= max((len(str(self.HTTP[0]))),(len(str(self.HTTP[1]))),(len(str(self.HTTPS[0]))),(len(str(self.HTTPS[1]))))
+            esc=" "*(maior-1)
+            #if len(str(self.HTTP[0])) == maior:
+
+            print(("||"+esc+str(self.HTTP[0])+"||"+str(self.HTTP[1])+esc+"||").center(columns))
+            print(("||"+esc+str(self.HTTPS[0])+"||"+str(self.HTTPS[1])+esc+"||").center(columns))
+        #    print(self.HTTPS.center(columns))
 
 
     def thread(self):
