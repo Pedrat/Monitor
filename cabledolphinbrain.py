@@ -31,6 +31,7 @@ class CAPTURE:
                     self.incrdst(packet["TCP"].dstport)
                 except:
                     pass
+                    
     def menu(self):
         while 1:
             sleep(0.2)
@@ -40,12 +41,8 @@ class CAPTURE:
             print(lines)
             maior= max((len(str(self.HTTP[0]))),(len(str(self.HTTP[1]))),(len(str(self.HTTPS[0]))),(len(str(self.HTTPS[1]))))
             esc=" "*(maior-1)
-            #if len(str(self.HTTP[0])) == maior:
-
             print(("||"+esc+str(self.HTTP[0])+"||"+str(self.HTTP[1])+esc+"||").center(columns))
             print(("||"+esc+str(self.HTTPS[0])+"||"+str(self.HTTPS[1])+esc+"||").center(columns))
-        #    print(self.HTTPS.center(columns))
-
 
     def thread(self):
         thr=th(target=self.capture)
