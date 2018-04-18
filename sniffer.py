@@ -15,7 +15,7 @@ class TCP:
         self.flag_syn = (offset_reserved_flags & 2) >> 1
         self.flag_fin = offset_reserved_flags & 1
         self.data = raw_data[offset:]
-        
+
 class UDP:
     def __init__(self, raw_data):
         self.src_port, self.dest_port, self.size = struct.unpack('! H H 2x H', raw_data[:8])
